@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="日本二十三日旅行手账：照片、江之电、旅行路线与美食印章。">
+<title>Tabi Nikki Japan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="/fonts.css">
+<style>
+body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* Layout: a washi scrapbook. Ink title set vertically, photos taped onto paper, hand-written sticky notes under every record, an emaki route scroll and eki-style food stamps. */
+:root{
+  --paper:#eeebe3; --paper-2:#e3ded2; --card:#fbf9f4; --ink:#1c1e23; --ink-2:#5a5c63; --rule:#cdc5b5;
+  --ai:#27426e; --shu:#c3412b; --tape:rgba(212,194,148,.62);
+  --duck:#f4b33c; --logo-line:#fbf9f4; --n-ink:#2a2620; --n-yellow:#f6e7a1; --n-pink:#f4cfc8; --n-mint:#cfe6cf; --n-blue:#cfdcef;
+  --shadow:0 1px 0 rgba(60,50,30,.08),0 14px 28px -18px rgba(40,30,15,.45);
+  --f-display:"Noto Serif SC","Shippori Mincho","Songti SC",serif;
+  --f-body:"Noto Sans SC","PingFang SC","Hiragino Sans",system-ui,sans-serif;
+  --f-ja:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-hand:"Klee One","Kaiti SC","STKaiti",cursive;
+  --f-mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#15171c; --paper-2:#1c1f26; --card:#21242b; --ink:#ece6da; --ink-2:#a9a499; --rule:#383b43;
+  --ai:#93b3e8; --shu:#ee6d55; --tape:rgba(180,165,128,.3);
+  --n-yellow:#e6d58c; --n-pink:#e2b8b0; --n-mint:#b7d3b7; --n-blue:#b7c8e2;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 16px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#15171c; --paper-2:#1c1f26; --card:#21242b; --ink:#ece6da; --ink-2:#a9a499; --rule:#383b43;
+  --ai:#93b3e8; --shu:#ee6d55; --tape:rgba(180,165,128,.3);
+  --n-yellow:#e6d58c; --n-pink:#e2b8b0; --n-mint:#b7d3b7; --n-blue:#b7c8e2;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 16px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.8;
+  background-image:radial-gradient(circle at 20% 10%,var(--paper-2) 0 1px,transparent 1.5px),radial-gradient(circle at 70% 60%,var(--paper-2) 0 1px,transparent 1.5px);
+  background-size:23px 29px,37px 31px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+[lang="ja"]{font-family:var(--f-ja)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;line-height:1.3}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ai);outline-offset:3px}
+.inner{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+
+.p-new-photo{grid-column:span 6}.p-new-photo .media{aspect-ratio:4/3}
+@media(max-width:860px){.p-new-photo{grid-column:1 / -1}}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar .inner{display:flex;align-items:center;gap:20px;height:56px}
+.brand{font-family:var(--f-ja);font-weight:800;font-size:20px;letter-spacing:.1em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+.brand .logo{width:34px;height:34px;flex:none;transform:rotate(-4deg);transition:transform .35s cubic-bezier(.2,1.6,.4,1)}
+.brand:hover .logo{transform:rotate(4deg) scale(1.06)}
+.brand .word{display:flex;flex-direction:column;line-height:1.05}
+.brand .word small{font-family:var(--f-mono);font-size:9px;font-weight:500;letter-spacing:.24em;color:var(--ink-2);margin-top:3px}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav a{font-size:14px;color:var(--ink-2);text-decoration:none;padding:6px 12px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{color:var(--ink);background:var(--paper-2)}
+.nav a.on{color:var(--card);background:var(--ink)}
+.bar .count{font-family:var(--f-mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.bar .count b{color:var(--shu);font-weight:500}
+
+/* hero */
+.hero{display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:start;padding-block:48px 44px;border-bottom:1px solid var(--rule)}
+.tate{writing-mode:vertical-rl;font-family:var(--f-ja);font-weight:800;font-size:clamp(64px,11vw,128px);line-height:1;letter-spacing:.06em}
+.tate small{display:block;font-size:.2em;font-weight:500;letter-spacing:.4em;color:var(--ink-2);margin-top:.7em}
+.hero-main{display:flex;flex-direction:column;gap:18px;padding-top:12px;min-width:0}
+.hero-main h1{font-size:clamp(32px,4.8vw,54px);font-weight:900;letter-spacing:.02em}
+.hero-main h1 em{font-style:normal;color:var(--ai)}
+.lede{max-width:40em;color:var(--ink-2)}
+.facts{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:8px}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-family:var(--f-display);font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.3}
+.facts span{font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.hanko{width:104px;height:104px;border:3px solid var(--shu);border-radius:10px;color:var(--shu);display:grid;place-items:center;transform:rotate(-6deg);background:color-mix(in srgb,var(--paper) 70%,transparent);
+  font-family:var(--f-ja);font-weight:800;font-size:28px;line-height:1.05;text-align:center;opacity:.92;animation:press .7s cubic-bezier(.2,1.6,.4,1) .2s both}
+
+/* duck mascot */
+.mascot{position:relative;width:230px;align-self:end;margin-bottom:-44px;display:flex;justify-content:flex-end}
+.mascot .duck{width:200px;height:auto;display:block;transform-origin:50% 100%;animation:waddle 4.5s ease-in-out infinite}
+.mascot .hanko{position:absolute;left:-28px;top:-6px;z-index:2}
+.bubble{position:absolute;z-index:3;background:var(--card);color:var(--ink);border:2px solid var(--ink);border-radius:16px;padding:6px 12px;font-family:var(--f-hand);font-size:15px;font-weight:600;white-space:nowrap;box-shadow:3px 3px 0 var(--ink)}
+.bubble::after{content:"";position:absolute;width:12px;height:12px;background:var(--card);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.mascot .bubble{right:150px;bottom:150px}
+.mascot .bubble::after{right:14px;bottom:-8px;transform:rotate(45deg)}
+@keyframes waddle{0%,100%{transform:rotate(0)}25%{transform:rotate(-2.5deg)}75%{transform:rotate(2.5deg)}}
+.peek{position:relative}
+.peek-duck{position:absolute;right:24px;top:-74px;width:96px;height:auto;pointer-events:none;transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
+.peek .bubble{right:128px;top:-62px;font-size:14px}
+.peek .bubble::after{right:-8px;top:12px;transform:rotate(-45deg)}
+.peek:hover .peek-duck{transform:translateY(-6px)}
+.duck-chip{width:28px;height:28px;border-radius:50%;background:var(--duck);object-fit:cover;object-position:50% 20%;border:1.5px solid var(--ink)}
+.empty{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-2)}
+.empty img{width:40px;height:auto}
+.duck-top{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:25;width:58px;height:58px;border-radius:50%;border:2px solid var(--ink);background:var(--duck);padding:0;cursor:pointer;overflow:hidden;box-shadow:3px 3px 0 var(--ink);transition:transform .25s,opacity .25s}
+.duck-top img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transform:translateY(6px) scale(1.15)}
+.duck-top:hover{transform:translateY(-3px) rotate(-6deg)}
+.duck-top[data-hide="true"]{opacity:0;pointer-events:none;transform:translateY(12px)}
+.duck-top .tip{position:absolute;inset:auto}
+.foot-duck{display:flex;align-items:flex-end;gap:14px}
+.foot-duck img{width:84px;height:auto;margin-bottom:-20px}
+.toast{display:flex;align-items:center;gap:10px}
+.toast img{width:26px;height:26px;border-radius:50%;background:var(--duck);object-fit:cover;object-position:50% 15%}
+.toast[hidden],.lb[hidden]{display:none}
+.hanko span{display:block;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.08em;margin-top:4px}
+@keyframes press{from{transform:rotate(-6deg) scale(1.25);opacity:.4}to{transform:rotate(-6deg) scale(1);opacity:.9}}
+
+section{padding-top:64px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.4vw,34px)}
+.sec-head .ja{color:var(--shu);font-size:18px;font-weight:700}
+.sec-head p{flex-basis:100%;color:var(--ink-2);max-width:42em}
+
+/* collection */
+.collection{display:grid;grid-template-columns:repeat(12,1fr);gap:48px 32px;align-items:start}
+.piece{position:relative;margin:0;background:var(--card);padding:12px 12px 18px;box-shadow:var(--shadow);min-width:0;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.piece::before{content:"";position:absolute;top:-11px;left:50%;width:92px;height:22px;background:var(--tape);transform:translateX(-50%) rotate(-2deg);z-index:1}
+.piece.tilt-l{transform:rotate(-.7deg)} .piece.tilt-r{transform:rotate(.8deg)}
+@media (hover:hover){.piece:hover{transform:rotate(0) translateY(-4px)}}
+.p-depart{grid-column:1 / span 4} .p-enoden{grid-column:5 / span 8;margin-top:48px}
+.p-ticket{grid-column:1 / span 5;margin-top:8px} .p-sea{grid-column:6 / span 7}
+.p-suntory{grid-column:1 / span 4} .p-torys{grid-column:5 / span 6;margin-top:56px} .p-poem{grid-column:11 / span 2;align-self:center}
+.media{position:relative;display:block;width:100%;max-width:100%;border:0;padding:0;background:var(--paper-2);cursor:zoom-in;overflow:hidden}
+.media img,.media video{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+@media (hover:hover){button.media:hover img{transform:scale(1.03)}}
+.p-depart .media{aspect-ratio:3/4} .p-enoden .media{aspect-ratio:960/544;cursor:default}
+.p-ticket .media,.p-sea .media,.p-torys .media{aspect-ratio:4/3} .p-suntory .media{aspect-ratio:3/4}
+.vid-ctl{position:absolute;right:10px;bottom:10px;display:flex;gap:6px}
+.vid-ctl button{border:0;background:rgba(20,20,22,.62);color:#fff;font-size:12px;padding:6px 10px;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px)}
+.vid-ctl button:hover{background:rgba(20,20,22,.82)}
+.cap{display:flex;flex-direction:column;gap:4px;padding:0 4px}
+.cap .meta{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--ai);text-transform:uppercase}
+.cap .ja{font-family:var(--f-ja);font-weight:700;font-size:19px;line-height:1.5}
+.cap .zh{font-size:14px;color:var(--ink-2);line-height:1.75}
+.p-poem{background:transparent;box-shadow:none;padding:0}
+.p-poem::before{display:none}
+.p-poem p{writing-mode:vertical-rl;font-family:var(--f-ja);font-size:22px;font-weight:700;line-height:1.9;margin:0 auto;height:280px}
+.p-poem p span{color:var(--shu)}
+
+/* sticky notes */
+.board{border-top:1px dashed var(--rule);padding:14px 4px 0;display:flex;flex-direction:column;gap:12px}
+.board-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.board-head .lbl{font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.add{border:1px dashed var(--ink-2);background:transparent;border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer;transition:background .2s,border-color .2s}
+.add:hover{background:var(--paper-2);border-style:solid}
+.add[disabled]{opacity:.5;cursor:not-allowed}
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:14px 12px}
+.notes:empty{display:none}
+.note{position:relative;background:var(--nc,var(--n-yellow));color:var(--n-ink);padding:14px 12px 10px;min-height:96px;display:flex;flex-direction:column;gap:6px;
+  transform:rotate(var(--r,0deg));box-shadow:0 1px 1px rgba(0,0,0,.08),0 8px 14px -10px rgba(0,0,0,.45);animation:stick .35s cubic-bezier(.2,1.4,.4,1) both}
+.note::after{content:"";position:absolute;top:-7px;left:50%;width:38px;height:13px;background:var(--tape);transform:translateX(-50%) rotate(3deg)}
+.note .txt{font-family:var(--f-hand);font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;flex:1}
+.note .who{display:flex;align-items:center;gap:6px;font-size:11px;opacity:.75}
+.note .who img{width:16px;height:16px;border-radius:50%}
+.note .who span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.note .del{position:absolute;top:2px;right:2px;width:24px;height:24px;border:0;background:transparent;color:var(--n-ink);cursor:pointer;opacity:0;font-size:16px;line-height:1;border-radius:4px}
+.note:hover .del,.note .del:focus-visible{opacity:.65}
+@media (hover:none){.note .del{opacity:.5}}
+@keyframes stick{from{opacity:0;transform:rotate(var(--r,0deg)) translateY(-8px) scale(.96)}to{opacity:1;transform:rotate(var(--r,0deg))}}
+.composer{background:var(--paper);border:1px solid var(--rule);padding:10px;display:flex;flex-direction:column;gap:10px}
+.composer textarea{width:100%;min-height:72px;resize:vertical;border:0;padding:10px;font-family:var(--f-hand);font-size:16px;line-height:1.55;background:var(--nc,var(--n-yellow));color:var(--n-ink);outline:none}
+.composer textarea:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+.c-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sw{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.sw[aria-checked="true"]{border-color:var(--ink)}
+.c-row .left{font-family:var(--f-mono);font-size:11px;color:var(--ink-2);margin-left:auto;font-variant-numeric:tabular-nums}
+.btn{border:0;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--card)}
+.btn.primary[disabled]{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink-2)}
+.hint{font-size:12px;color:var(--ink-2)}
+
+/* route */
+.emaki{overflow-x:auto;padding-bottom:12px;scrollbar-color:var(--rule) transparent}
+.emaki ol{list-style:none;margin:0;padding:24px 4px 8px;display:grid;grid-auto-flow:column;grid-auto-columns:150px;min-width:max-content}
+.emaki li{position:relative;padding:58px 14px 0 0;display:flex;flex-direction:column;gap:4px}
+.emaki li::before{content:"";position:absolute;top:22px;left:0;right:0;border-top:2px dashed var(--rule)}
+.emaki li.done::before{border-top-style:solid;border-color:var(--ai)}
+.stop-dot{position:absolute;top:8px;left:0;width:30px;height:30px;border-radius:50%;background:var(--card);border:2px solid var(--rule);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--ink-2)}
+.done .stop-dot{background:var(--ai);border-color:var(--ai);color:var(--card)}
+.now .stop-dot{background:var(--shu);border-color:var(--shu);color:var(--card);box-shadow:0 0 0 6px color-mix(in srgb,var(--shu) 22%,transparent)}
+.emaki .kanji{font-family:var(--f-ja);font-weight:700;font-size:20px}
+.emaki .name{font-size:14px;font-weight:500}
+.emaki .days{font-family:var(--f-mono);font-size:11px;color:var(--ink-2)}
+.emaki .tag{font-size:11px;color:var(--shu);font-weight:500}
+
+/* stamps */
+.stamps{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+.stamp{appearance:none;background:var(--card);border:1px solid var(--rule);padding:18px 12px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;text-align:center;transition:border-color .2s,transform .2s}
+.stamp:hover{border-color:var(--ink-2);transform:translateY(-2px)}
+.seal{width:84px;height:84px;border-radius:50%;border:2.5px dashed var(--rule);display:grid;place-items:center;color:var(--ink-2);font-family:var(--f-ja);font-weight:800;font-size:22px;line-height:1.1;transition:color .25s,border-color .25s}
+.seal small{display:block;font-family:var(--f-mono);font-size:9px;font-weight:500;letter-spacing:.08em}
+.stamp[aria-pressed="true"] .seal{color:var(--shu);border:2.5px solid var(--shu);animation:ink .45s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes ink{from{transform:rotate(-8deg) scale(1.3)}to{transform:rotate(-8deg) scale(1)}}
+.stamp[aria-pressed="true"] .seal{transform:rotate(-8deg)}
+.stamp .dish{font-size:14px;font-weight:500;line-height:1.4}
+.stamp .where{font-family:var(--f-mono);font-size:11px;color:var(--ink-2)}
+.tally{font-family:var(--f-mono);font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tally b{color:var(--shu);font-weight:500}
+
+footer{margin-top:72px;padding-block:20px 48px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--ink-2)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(12,13,16,.92);display:grid;grid-template-rows:auto 1fr auto;gap:12px;
+  padding:max(14px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));color:#f2eee6}
+.lb-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:12px}
+.lb-stage{position:relative;display:grid;place-items:center;min-height:0}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-cap{text-align:center;font-family:var(--f-ja);font-size:18px}
+.lb button{border:0;background:rgba(255,255,255,.12);color:#f2eee6;border-radius:999px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.22)}
+.lb .close{padding:6px 14px;font-size:13px}
+.lb .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:22px}
+.lb .prev{left:0} .lb .next{right:0}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--card);font-size:14px;padding:10px 18px;border-radius:999px;max-width:calc(100% - 32px);box-shadow:var(--shadow)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:auto 1fr;gap:24px}
+  .mascot{grid-column:2;justify-self:end;width:200px}
+  .mascot .duck{width:160px}
+  .mascot .hanko{width:84px;height:84px;font-size:22px;left:-10px}
+  .mascot .bubble{right:118px;bottom:120px}
+  .collection{grid-template-columns:1fr 1fr;gap:40px 20px}
+  .p-depart,.p-enoden,.p-ticket,.p-sea,.p-torys{grid-column:1 / -1;margin-top:0}
+  .p-suntory{grid-column:1} .p-poem{grid-column:2}
+  .bar .count{display:none}
+}
+@media (max-width:540px){
+  .tate{font-size:58px} .hero{gap:16px;padding-top:32px}
+  .mascot{grid-column:1 / -1;width:100%}
+  .mascot .duck{width:140px}
+  .mascot .hanko{left:0;top:auto;bottom:56px}
+  .mascot .bubble{right:110px;bottom:110px}
+  .peek-duck{width:76px;top:-58px;right:8px}
+  .peek .bubble{right:88px;top:-50px}
+  .duck-top{width:50px;height:50px}
+  .p-suntory,.p-poem{grid-column:1 / -1}
+  .p-poem p{height:220px}
+  .nav a{padding:6px 9px}
+  .brand{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head><body>
+
+
+<div lang="zh-CN">
+<header class="bar">
+  <div class="inner">
+    <a class="brand" href="#top" aria-label="旅日記，回到顶部"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="12" fill="var(--shu)"/><circle cx="31" cy="16.5" r="6.5" fill="var(--duck)"/><path d="M7 29c3.5-5 7-5 10.5 0s7 5 10.5 0 7-5 10.5 0" fill="none" stroke="var(--logo-line)" stroke-width="3" stroke-linecap="round"/><path d="M9 37.5h30" fill="none" stroke="var(--logo-line)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/></svg><span class="word"><span lang="ja">旅日記</span><small>TABI NIKKI</small></span></a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="#records" data-sec="records">记录</a>
+      <a href="#route" data-sec="route">路线</a>
+      <a href="#food" data-sec="food">美食</a>
+    </nav>
+    <span class="count" id="bar-count"></span>
+  </div>
+</header>
+
+<main class="inner" id="top">
+  <div class="hero">
+    <div class="tate" aria-hidden="true" lang="ja">旅日記<small>日本 二十三日</small></div>
+    <div class="hero-main">
+      <span class="eyebrow">Travel journal · Autumn 2026</span>
+      <h1>二十三天，山、<em>海</em>与慢火车</h1>
+      <p class="lede">我的日本旅行收藏册。从成田落地，住在浅草，然后去海边、阿尔卑斯山、京都，最后走熊野古道。每段记录下面都有便签，看完欢迎贴一张。</p>
+      <div class="facts">
+        <div><b>23</b><span>天</span></div>
+        <div><b>11</b><span>站</span></div>
+        <div><b>¥800</b><span>江之电一日券</span></div>
+        <div><b id="fact-notes">0</b><span>张便签</span></div>
+      </div>
+    </div>
+    <div class="mascot">
+      <div class="hanko" aria-label="日期印章 2026年10月20日" lang="ja">江ノ電<span>2026.10.20</span></div>
+      <span class="bubble" id="duck-say">出发啦，呱！</span>
+      <img class="duck" id="duck-hero" src="media/duck.png" alt="小刘鸭：戴黄色帽子、穿背带裤的鸭子，手里拿着一副圆眼镜">
+    </div>
+  </div>
+
+  <section id="records" aria-labelledby="col-h">
+    <div class="sec-head">
+      <h2 id="col-h">旅途收藏</h2><span class="ja" lang="ja">記録</span>
+      <p>路上留下的东西。点照片可以看大图，用左右键翻页。</p>
+    </div>
+    <div class="collection">
+      <figure class="piece p-depart tilt-r" data-piece="depart">
+        <button class="media" data-full="media/departure.jpg" aria-label="查看出发海报大图"><img src="media/departure.jpg" alt="卡通风格的出发海报，标题「河豚の出発啦！」，一群背着背包的旅人穿过无锡站的检票口" loading="lazy"></button>
+        <figcaption class="cap">
+          <span class="meta">Day 0 · 无锡站</span>
+          <span class="ja" lang="ja">河豚の出発啦！</span>
+          <span class="zh">背包上肩，箱子装满，过闸出发，目的地日本。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="piece p-enoden tilt-l" data-piece="enoden">
+        <div class="media">
+          <video id="vid" src="media/enoden.mp4" poster="media/enoden-poster.jpg" autoplay muted loop playsinline aria-label="绿白相间的江之电列车驶进挤满人的海边月台"></video>
+          <div class="vid-ctl"><button type="button" id="vid-play">暂停</button><button type="button" id="vid-sound">开声音</button></div>
+        </div>
+        <figcaption class="cap">
+          <span class="meta">10月20日 · 江之岛电铁</span>
+          <span class="ja" lang="ja">江ノ電、到着</span>
+          <span class="zh">绿白相间的江之电慢慢开进挤满人的海边月台。这条线跑了一百二十多年，还是贴着民居和海岸线开。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="piece p-ticket tilt-r" data-piece="ticket">
+        <button class="media" data-full="media/ticket.jpg" aria-label="查看一日券大图"><img src="media/ticket.jpg" alt="江之电「のりおりくん」一日乘车券，大人800日元，2026年10月20日有效，藤泽至镰仓" loading="lazy"></button>
+        <figcaption class="cap">
+          <span class="meta">一日乗車券 · No. 4045</span>
+          <span class="ja" lang="ja">のりおりくん</span>
+          <span class="zh">江之电一日券，藤泽到镰仓之间随上随下，大人 800 日元。在藤泽站买的，票面印着银杏叶和红叶，正应秋景。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="piece p-sea tilt-l" data-piece="sea">
+        <button class="media" data-full="media/sea.jpg" aria-label="查看海景大图"><img src="media/sea.jpg" alt="从车窗看出去的灰蓝色大海和多云天空，前面是海岸公路" loading="lazy"></button>
+        <figcaption class="cap">
+          <span class="meta">湘南海岸 · 车窗</span>
+          <span class="ja" lang="ja">湘南の海</span>
+          <span class="zh">车窗外的相模湾。海风吹皱水面，云缝里透出一点蓝，海岸公路就贴着铁轨。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="piece p-suntory tilt-r" data-piece="suntory">
+        <button class="media" data-full="media/suntory.jpg" aria-label="查看啤酒广告大图"><img src="media/suntory.jpg" alt="铁轨上方的三得利生啤巨幅广告，女子仰头举着冰啤酒杯，背景是夏日云朵" loading="lazy"></button>
+        <figcaption class="cap">
+          <span class="meta">月台上看到</span>
+          <span class="ja" lang="ja">夏は上を向くためにある。</span>
+          <span class="zh">「夏天就是用来抬头的。」铁轨上方的巨幅啤酒广告，十月了还留着夏天。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="piece p-torys tilt-l" data-piece="torys">
+        <button class="media" data-full="media/torys.jpg" aria-label="查看 Torys 海报大图"><img src="media/torys.jpg" alt="三得利 Torys 威士忌车厢海报插画：戴红色毛线帽的男人在帐篷旁的篝火上烤鱼，手里拿着嗨棒" loading="lazy"></button>
+        <figcaption class="cap">
+          <span class="meta">车厢广告 · Suntory Torys</span>
+          <span class="ja" lang="ja">電波がないとストレスもないもんだナ。</span>
+          <span class="zh">「没有信号，也就没有压力嘛。」篝火、烤鱼、一杯嗨棒，进山之前正合心意。</span>
+        </figcaption>
+      </figure>
+
+      <div class="piece p-poem" aria-label="短句：看着海，等电车。"><p lang="ja">海を見て、<br>電車を<span>待つ</span>。</p></div>
+      <figure class="piece p-new-photo tilt-r" data-piece="shrimp-rice" id="new-photos">
+        <button class="media" data-full="media/travel-shrimp-rice.jpg" aria-label="查看这一口，满足大图"><img src="media/travel-shrimp-rice.jpg" alt="盘中的米饭、鲜虾和蔬菜，勺子里盛着一口饭" loading="lazy" width="1707" height="1280"></button>
+        <figcaption class="cap"><span class="meta">新照片 · 餐桌上的一刻</span><span class="ja">这一口，满足</span><span class="zh">鲜虾、米饭和蔬菜，舀起一勺，记住旅途中的这一餐。</span></figcaption>
+      </figure>
+      <figure class="piece p-new-photo tilt-l" data-piece="wooden-ceiling">
+        <button class="media" data-full="media/travel-wooden-ceiling.jpg" aria-label="查看抬头的小发现大图"><img src="media/travel-wooden-ceiling.jpg" alt="木梁与编织屋顶下悬挂着小舟和贝壳装饰灯" loading="lazy" width="1707" height="1280"></button>
+        <figcaption class="cap"><span class="meta">新照片 · 餐厅里的风景</span><span class="ja">抬头的小发现</span><span class="zh">木梁、编织屋顶、悬挂的小舟与贝壳灯，抬头也有值得收藏的风景。</span></figcaption>
+      </figure>
+      <figure class="piece p-new-photo tilt-r" data-piece="station-mural">
+        <button class="media" data-full="media/travel-station-mural.jpg" aria-label="查看车站里的色彩大图"><img src="media/travel-station-mural.jpg" alt="车站墙面上的深蓝底彩色漫画壁画" loading="lazy" width="1707" height="1280"></button>
+        <figcaption class="cap"><span class="meta">新照片 · 路过一面墙</span><span class="ja">车站里的色彩</span><span class="zh">深蓝色底上的缤纷角色，把匆匆走过的车站变成了一页漫画。</span></figcaption>
+      </figure>
+      <figure class="piece p-new-photo tilt-l" data-piece="street-rickshaws">
+        <button class="media" data-full="media/travel-street-rickshaws.jpg" aria-label="查看街头的人力车大图"><img src="media/travel-street-rickshaws.jpg" alt="街道旁停着两辆人力车，背景是房屋、树木和车辆" loading="lazy" width="1707" height="1280"></button>
+        <figcaption class="cap"><span class="meta">新照片 · 街头一瞥</span><span class="ja">街头的人力车</span><span class="zh">人力车停在街边，屋檐、树枝和来往的车，把这一刻留在了照片里。</span></figcaption>
+      </figure>
+      <figure class="piece p-new-photo tilt-r" data-piece="bird-rooftops" id="latest-photo">
+        <button class="media" data-full="media/travel-bird-rooftops.jpg" aria-label="查看屋顶上的小鸟大图"><img src="media/travel-bird-rooftops.jpg" alt="屋顶上有圆眼睛和黄色鸟喙造型的建筑，红绿屋面映着多云天空" loading="lazy" width="1707" height="1280"></button>
+        <figcaption class="cap"><span class="meta">新照片 · 抬头看见</span><span class="ja">屋顶上的小鸟</span><span class="zh">圆圆的眼睛、黄色的鸟喙，藏在红绿屋顶间。路过时抬头，收获一个可爱的小发现。</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="route" aria-labelledby="route-h">
+    <div class="sec-head">
+      <h2 id="route-h">旅行路线</h2><span class="ja" lang="ja">道のり</span>
+      <p>东京进，大阪出。左右滑动看完整条线。</p>
+    </div>
+    <div class="peek"><span class="bubble">下一站：日光</span><img class="peek-duck" src="media/duck-head.png" alt=""></div>
+    <div class="emaki" tabindex="0" aria-label="旅行路线，可横向滚动">
+      <ol>
+        <li class="done"><span class="stop-dot">1</span><span class="kanji" lang="ja">東京</span><span class="name">东京 · 浅草</span><span class="days">2 天</span></li>
+        <li class="now"><span class="stop-dot">✦</span><span class="kanji" lang="ja">湘南</span><span class="name">镰仓与江之岛</span><span class="days">顺路一游</span><span class="tag">今天在这里</span></li>
+        <li><span class="stop-dot">2</span><span class="kanji" lang="ja">日光</span><span class="name">日光</span><span class="days">2 天</span></li>
+        <li><span class="stop-dot">3</span><span class="kanji" lang="ja">箱根</span><span class="name">箱根</span><span class="days">3 天</span></li>
+        <li><span class="stop-dot">4</span><span class="kanji" lang="ja">木曽路</span><span class="name">木曾谷</span><span class="days">2 天</span></li>
+        <li><span class="stop-dot">5</span><span class="kanji" lang="ja">上高地</span><span class="name">上高地</span><span class="days">2 天</span></li>
+        <li><span class="stop-dot">6</span><span class="kanji" lang="ja">高山</span><span class="name">高山 · 白川乡</span><span class="days">3 天</span></li>
+        <li><span class="stop-dot">7</span><span class="kanji" lang="ja">京都</span><span class="name">京都</span><span class="days">3 天</span></li>
+        <li><span class="stop-dot">8</span><span class="kanji" lang="ja">奈良</span><span class="name">奈良</span><span class="days">1 天</span></li>
+        <li><span class="stop-dot">9</span><span class="kanji" lang="ja">熊野古道</span><span class="name">熊野古道</span><span class="days">4 天</span></li>
+        <li><span class="stop-dot">10</span><span class="kanji" lang="ja">大阪</span><span class="name">大阪</span><span class="days">1 晚</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="food" aria-labelledby="food-h">
+    <div class="sec-head">
+      <h2 id="food-h">美食印章</h2><span class="ja" lang="ja">食べ歩き</span>
+      <p>每站一道当地味道，吃过就点一下盖章。印章只记在你自己的浏览器里。<span class="tally" id="tally"></span></p>
+    </div>
+    <div class="peek"><span class="bubble" id="food-say">今天吃了吗？</span><img class="peek-duck" src="media/duck-head.png" alt=""></div>
+    <div class="stamps" id="stamps"></div>
+  </section>
+
+  <footer>
+    <span class="foot-duck"><img src="media/duck.png" alt=""><span><span lang="ja">旅日記 · 日本 2026 秋</span><br>和小刘鸭一起，下一站见</span></span>
+    <span>照片与视频均摄于旅途中</span>
+  </footer>
+</main>
+</div>
+<button type="button" class="duck-top" id="duck-top" data-hide="true" aria-label="回到顶部"><img src="media/duck-head.png" alt=""></button>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="大图">
+  <div class="lb-top"><span id="lb-n"></span><button type="button" class="close" id="lb-close">关闭</button></div>
+  <div class="lb-stage">
+    <img id="lb-img" alt="">
+    <button type="button" class="arrow prev" id="lb-prev" aria-label="上一张">‹</button>
+    <button type="button" class="arrow next" id="lb-next" aria-label="下一张">›</button>
+  </div>
+  <div class="lb-cap" id="lb-cap" lang="ja"></div>
+</div>
+<div class="toast" id="toast" hidden role="status"><img src="media/duck-head.png" alt=""><span id="toast-t"></span></div>
+
+<script type="module" src="/src/journal.js"></script>
+
+</body></html>
